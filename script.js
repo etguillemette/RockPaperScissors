@@ -2,13 +2,13 @@ const maxChoices = 3;
 let playerWins = 0;
 let computerWins = 0;
 
-function getComputerChoice(){
+function getComputerChoice() {
     let randomNumber = Math.floor(Math.random() * maxChoices);
-    switch(randomNumber){
+    switch (randomNumber) {
         case 0:
             return 'rock';
             break;
-        case 1: 
+        case 1:
             return 'paper';
             break;
         case 2:
@@ -21,100 +21,73 @@ function getComputerChoice(){
 }
 
 
-function getPlayerChoice(){
-    let valid = false;
-    while(valid === false){
-        let playerInput = prompt("Let's play Rock Paper Scissors! What is your chioce?");
-        playerInput = playerInput.toLowerCase();
-
-        if(playerInput === 'rock'){
-            valid = true;
-            return 'rock';
-        }
-        else if(playerInput === 'paper'){
-            valid = true;
-            return 'paper';
-        }
-        else if(playerInput === 'scissors'){
-            valid = true;
-            return 'scissors';
-        }
-        else{
-            //Continue prompting for 
-            console.log("Error. Please choose a valid option...");
-        }
-    }
-    
-
-
+function updateResult(resultStr){
+    const output = document.querySelector('.output');
+    output.textContent = resultStr;
 }
 
-
-function playRound(){
-    let playerChoice = getPlayerChoice();
+function playRound(playerChoice) {
+    
     let computerChoice = getComputerChoice();
 
-    if(computerChoice === playerChoice){
+    if (computerChoice === playerChoice) {
         return "It's a tie!";
     }
-    else if(computerChoice === 'rock'){
-        if(playerChoice === 'paper'){
+    else if (computerChoice === 'rock') {
+        if (playerChoice === 'paper') {
             playerWins++;
             return "You win!";
         }
-        else if(playerChoice === 'scissors'){
+        else if (playerChoice === 'scissors') {
             computerWins++;
             return "You lose!";
         }
-        else{
+        else {
             return "Error";
         }
     }
-    else if(computerChoice === 'paper'){
-        if(playerChoice === 'scissors'){
+    else if (computerChoice === 'paper') {
+        if (playerChoice === 'scissors') {
             playerWins++;
             return "You win!";
         }
-        else if(playerChoice === 'rock'){
+        else if (playerChoice === 'rock') {
             computerWins++;
             return "You lose!";
         }
-        else{
+        else {
             return "Error";
         }
     }
-    else if(computerChoice === 'scissors'){
-        if(playerChoice === 'rock'){
+    else if (computerChoice === 'scissors') {
+        if (playerChoice === 'rock') {
             playerWins++;
             return "You win!";
         }
-        else if(playerChoice === 'paper'){
+        else if (playerChoice === 'paper') {
             computerWins++;
             return "You lose!";
         }
-        else{
+        else {
             return "Error";
         }
     }
-    else{
+    else {
         return "Error";
     }
 }
 
+//const choices = document.querySelectorAll('.choice');
 
-while((playerWins - computerWins) < 2 && (computerWins - playerWins) < 2){
-    console.log(playRound());
-    console.log("Player wins: "+playerWins);
-    console.log("Computer wins: "+computerWins);
-}
+const rock = document.querySelector('#rock');
+const paper = document.querySelector('#paper');
+const scissors = document.querySelector('#scissors');
+
+rock.addEventListener('click',function() {updateResult(playRound('rock'));});
+paper.addEventListener('click',function() {updateResult(playRound('paper'));});
+scissors.addEventListener('click',function() {updateResult(playRound('scissors'));});
 
 
-if(computerWins>playerWins){
-    console.log("Computer is the ultimate winner!");
-}
-else if(playerWins>computerWins){
-    console.log("You are the ultimate winner!");
-}
-else{
-    console.log("Error");
-}
+
+
+

@@ -1,0 +1,71 @@
+.wrapper{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content:center;
+    align-items:center;
+}
+
+.container{
+    height:100vh;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.choice{
+    flex: 1 1 1;
+    height: 10rem;
+    width: 10rem;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size:larger;
+    font-weight:bold;
+    border: 0;
+}
+
+
+#rock{
+    background-color:dimgray;
+}
+
+#rock:hover{
+    border-color: rgb(230, 229, 220);
+    border-style:solid;
+    border-width: 0.5rem;
+}
+
+#rock:active{
+    background-color:black;
+    color:white;
+}
+
+#paper{
+    background-color: blanchedalmond;
+}
+
+#paper:hover{
+    border-color: rgb(236, 211, 139);
+    border-style:solid;
+    border-width: 0.5rem;
+}
+
+#paper:active{
+    background-color:brown;
+    color:white;
+}
+
+#scissors{
+    background-color: rgb(139, 180, 180);
+}
+
+#scissors:hover{
+    border-color: rgb(142, 232, 255);
+    border-style:solid;
+    border-width: 0.5rem;
+}
+
+#scissors:active{
+    background-color: darkblue;
+    color:white;
+}
+
